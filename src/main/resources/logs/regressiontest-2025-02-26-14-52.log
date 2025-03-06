@@ -1,0 +1,9 @@
+2025-02-26-14-52 DEBUG Basetest:setup: initializing report manager..
+2025-02-26-14-52 DEBUG Basetest:setDriver: browser object set forchrome
+2025-02-26-14-52 DEBUG Basetest:setupBrowse: browser object is settingup..
+2025-02-26-14-52 DEBUG Basetest:setupBrowser: test object is set for functionrememberMe_TC02
+2025-02-26-14-53 INFO  WaitUtils: waitForElement
+2025-02-26-14-53 INFO  WaitUtils: waitForElement
+2025-02-26-14-53 DEBUG Basetest:closeBrowser: quitting browser....
+2025-02-26-14-53 DEBUG Basetest:closeBrowser:browser is quit and removing browser instance....
+2025-02-26-14-53 DEBUG Basetest:tearDown: flushing the report..
