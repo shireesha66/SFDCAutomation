@@ -7,4 +7,7 @@ public static void main(String[] args) {
 public void print() {
 	System.out.println("print method");
 }
+public void msg() {
+	System.out.println("message");
+}
 }
