@@ -9,7 +9,9 @@ public class Branch2 {
 		int a=3;
 		int b=1;
 		int c= a-b;
+		int d=a*b;
 		System.out.println("sub"+ c);
+		System.out.println(d);
 	}
 
 
