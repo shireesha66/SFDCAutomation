@@ -46,11 +46,27 @@ public class ContactsPage extends BasePage {
 	@FindBy(id="hotlist_mode")
 	public WebElement dRopdown;
 	
-	@FindBy(xpath="//option[normalize-space(text())='Recently Created']")
+	@FindBy(xpath="//select[@title='Display Selection']")
 	public WebElement recentlycreated;
 	
 	
+	@FindBy(xpath="(//th[@scope='row']//a)[1]")
+	public WebElement lastname2;
 	
+	@FindBy(xpath="//option[@value='00BdM00000NdwGr']")
+	public WebElement mycontactsfromdropdown;
+	
+	@FindBy(xpath="//select[@id='fcf']")
+	public WebElement viewDropdown;
+	
+	@FindBy(xpath="(//div[@class='errorMsg'])[1]")
+	public WebElement errormsg;
+	
+	@FindBy(xpath="(//input[@value='Cancel'])[1]")
+	public WebElement cancel;
+	
+	@FindBy(xpath="(//input[@name='save_new'])[1]")
+	public WebElement saveandnew;
 	
 	
 	

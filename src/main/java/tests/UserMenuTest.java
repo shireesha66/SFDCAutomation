@@ -6,6 +6,8 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Set;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -21,25 +23,30 @@ import utils.WaitUtils;
 
 
 public class UserMenuTest {
-	
+	LoginPage lp;
 	String Uname;
 	String pass;
+	HomePage hp;
+	WebDriver driver;
 	
 	
 	@BeforeMethod
 	public void preConditions() throws FileNotFoundException, IOException {
-		 Uname = FileUtils.readLoginPropertiesFile("valid.username");
-	    pass = FileUtils.readLoginPropertiesFile("valid.password");
-		
-	   
-		
+		driver = BaseTest.getBrowserDriver("chrome", false);
+		System.out.println("WebDriver instance: " + driver);
+
+		System.out.println(utils.FileUtils.readLoginPropertiesFile("prod.url"));
+        driver.get( FileUtils.readLoginPropertiesFile("prod.url"));
+		lp= new LoginPage(driver);
+		String Uname = FileUtils.readLoginPropertiesFile("valid.username");
+		String pass = FileUtils.readLoginPropertiesFile("valid.password");
+		hp = lp.loginToApp(driver, Uname, pass);
 	}
 	
-	/*@AfterMethod
+	@AfterMethod
 	public void postCondition() {
-		WebDriver driver = BaseTest.getBrowser();
 		driver.quit();
-	}*/
+	}
 	
 	
 	//@Test
@@ -56,7 +63,7 @@ public class UserMenuTest {
 		assertTrue(hp.verifyUserMenuOptions(),"user menu options should be verified");
 	}
 	
-	@Test
+	//@Test
 	public void myProfile_tc06() throws FileNotFoundException, IOException, InterruptedException {
 		WebDriver driver = BaseTest.getBrowserDriver("chrome", false);
 		
@@ -131,6 +138,34 @@ public class UserMenuTest {
 		driver.close();
 		
 }
+	
+	//@Test
+	public void DeveloperConsoleSelection_TC08() {
+		 WaitUtils.waitForElement(driver, hp.HomeTab);
+		    hp.HomeTab.click();
+		    hp.clickUserMenu();
+		    hp.developerConsole.click();
+		    Set<String> getAllWindows=driver.getWindowHandles();
+			String[] window=getAllWindows.toArray(new String[getAllWindows.size()]);
+			driver.switchTo().window(window[1]).close();
+			System.out.println("TC_8_Selectdeveloperconsole completed");
+		    
+	}
+	
+	//@Test
+	public void Logout_TC09() {
+		 WaitUtils.waitForElement(driver, hp.HomeTab);
+		    hp.HomeTab.click();
+		    WaitUtils.waitForElement(driver, hp.userMenu);
+		    hp.clickUserMenu();
+			hp.logoutfromusermenu.click();
+			WaitUtils.waitForElement(driver, hp.login);
+		    if(hp.username.isDisplayed()) {
+		    	System.out.println("logout succesfull");
+		    }else {
+		    	System.out.println("logout failed");
+		    }
+	}
 
 	}
 	

@@ -85,7 +85,7 @@ public class LeadsTest {
 			}
 		}
 	   
-	   @Test
+	  // @Test
 	   public void newLeadSave_TC24() {
 		   LeadsPage lead = hp.ClickOnLeadsTab(driver);
 		   WaitUtils.waitForElement(driver,lead.newButton );
