@@ -48,6 +48,126 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="//li[@id='Contact_Tab']")
 	public WebElement ContactsTab;
 
+	@FindBy(xpath="//li[@id='home_Tab']//a[1]")
+	public WebElement HomeTab;
+	
+	@FindBy(xpath=" //h1[@class='currentStatusUserName']//a[1]")
+	public WebElement currentUserName;
+	
+	@FindBy(xpath="(//img[@title='Edit Profile'])[1]")
+	public WebElement editButton;
+	
+	@FindBy(xpath="//a[@aria-controls='TabPanel:0:Body:1']")
+	public WebElement abouttabiframe;
+	
+	@FindBy(xpath="//input[@value='Save All']")
+	public WebElement saveallButton;
+	
+	@FindBy(xpath="//input[contains(@class,'lastName zen-inputFull')]")
+	public WebElement lastname;
+	
+	@FindBy(xpath="//a[@aria-controls='TabPanel:0:Body:2']")
+	public WebElement contactTabIframe;
+	
+	@FindBy(xpath="//iframe[@frameborder='no']") 
+	public WebElement iframe;
+	
+	//35TC
+	
+	@FindBy(xpath="//img[@title='All Tabs']") 
+	public WebElement plusTab;
+	
+	@FindBy(xpath="//input[@title='Customize My Tabs']")
+	public WebElement customizeMyTab;
+	
+	@FindBy(xpath="(//td[@class='selectCell']//select)[2]")
+	public WebElement selectTabBox;
+	
+	@FindBy(xpath="//option[@value='Chatter']")
+	public WebElement chatterfromselectedTabs;
+	
+	
+	@FindBy(xpath="//img[@alt='Remove']")
+	public WebElement removeButton;
+	
+	@FindBy(xpath="//input[@class='btn primary']")
+	public WebElement saveButton;
+	
+	@FindBy(xpath="userNavLabel")
+	public WebElement Usermenubutton;
+	
+	@FindBy(xpath="//a[@title='Logout']")
+	public WebElement logoutfromusermenu;
+	
+	@FindBy(xpath="//a[normalize-space(text())='Chatter']")
+	public WebElement chatterTabOnHomePage;
+	
+	@FindBy(xpath="//input[@type='submit']")
+	public WebElement login;
+	
+	@FindBy(xpath="(//input[@aria-describedby='error'])[1]")
+	public WebElement username;
+	
+	@FindBy(xpath="(//input[@aria-describedby='error'])[2]")
+	public WebElement password;
+	
+	
+	
+	//TC36
+	@FindBy(xpath="//span[@class='pageDescription']//a[1]")
+	public WebElement datelinkOnHomePage;
+	
+	@FindBy(xpath="//a[normalize-space(text())='8:00 pm']")
+	public WebElement eightpmlink;
+	
+	@FindBy(xpath="//img[@title='Subject Combo (New Window)']")
+	public WebElement subjectComboIcon;
+	
+	@FindBy(xpath="//a[@href='javascript:pickValue(4);']")
+	public WebElement others;
+	
+	@FindBy(xpath="(//input[@name='save'])[1]")
+	public WebElement save;
+	
+	@FindBy(xpath="//input[@value='9:00 pm']")
+	public WebElement ninePmTime;
+	
+	@FindBy(xpath="//input[@id='EndDateTime_time']")
+	public WebElement endtimeField;
+	
+	@FindBy(xpath="//span[@class='event_00UdM000000rjJx']")
+	public WebElement otherCalendar;
+	
+	//tc37
+	
+	@FindBy(xpath="//a[normalize-space(text())='4:00 pm']")
+	public WebElement fourPm;
+	
+	@FindBy(xpath="//div[normalize-space(text())='7:00 pm']")
+	public WebElement sevenPmEndDropDown;
+	
+	@FindBy(xpath="(//input[@type='checkbox'])[2]")
+	public WebElement recurrence;
+	
+	@FindBy(xpath="//input[@value='ftw']")
+	public WebElement weeklyRadioButton;
+	
+	@FindBy(name="RecurrenceEndDateOnly")
+	public WebElement EndDateBox;
+	
+	@FindBy(xpath="//td[@id='topButtonRow']//input[@title='Save']")
+	public WebElement savebtn;
+	
+	//tc08
+	
+
+	@FindBy(xpath="//a[@class='debugLogLink menuButtonMenuLink']")
+	public WebElement developerConsole;
+	
+
+	@FindBy(xpath="//td[@id='topButtonRow']//input[@title='Save']")
+	public WebElement close;
+	
 	
 	
 	/*public boolean verifyUserMenuOptions() throws FileNotFoundException, IOException {
@@ -152,6 +272,19 @@ public class HomePage extends BasePage {
 		
 		return new ContactsPage(driver);
 	}
+	
+	
+public ContactsPage ClickOnplusTab(WebDriver driver) {
+		
+		WaitUtils.waitForElement(driver, plusTab);
+		plusTab.click();
+		
+		return new ContactsPage(driver);
+	}
+
+
+
+	
 	
 	
 	

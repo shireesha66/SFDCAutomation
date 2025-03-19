@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-02T18:40:33 EST" name="Default suite" finished-at="2025-03-02T18:40:49 EST" duration-ms="15772">
+  <suite started-at="2025-03-19T00:28:46 EDT" name="Default suite" finished-at="2025-03-19T00:28:57 EDT" duration-ms="11008">
     <groups>
     </groups>
-    <test started-at="2025-03-02T18:40:33 EST" name="Default test" finished-at="2025-03-02T18:40:49 EST" duration-ms="15772">
-      <class name="tests.LeadsTest">
-        <test-method is-config="true" signature="preConditions()[pri:0, instance:tests.LeadsTest@f5acb9d]" started-at="2025-03-02T18:40:33 EST" name="preConditions" finished-at="2025-03-02T18:40:37 EST" duration-ms="4265" status="PASS">
+    <test started-at="2025-03-19T00:28:46 EDT" name="Default test" finished-at="2025-03-19T00:28:57 EDT" duration-ms="11008">
+      <class name="tests.UserMenuTest">
+        <test-method is-config="true" signature="preConditions()[pri:0, instance:tests.UserMenuTest@4fb3ee4e]" started-at="2025-03-19T00:28:46 EDT" name="preConditions" finished-at="2025-03-19T00:28:49 EDT" duration-ms="2796" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preConditions -->
-        <test-method signature="newLeadSave_TC24()[pri:0, instance:tests.LeadsTest@f5acb9d]" started-at="2025-03-02T18:40:37 EST" name="newLeadSave_TC24" finished-at="2025-03-02T18:40:49 EST" duration-ms="11230" status="PASS">
+        <test-method signature="Logout_TC09()[pri:0, instance:tests.UserMenuTest@4fb3ee4e]" started-at="2025-03-19T00:28:49 EDT" name="Logout_TC09" finished-at="2025-03-19T00:28:57 EDT" duration-ms="7910" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- newLeadSave_TC24 -->
-        <test-method is-config="true" signature="postCondition()[pri:0, instance:tests.LeadsTest@f5acb9d]" started-at="2025-03-02T18:40:49 EST" name="postCondition" finished-at="2025-03-02T18:40:49 EST" duration-ms="247" status="PASS">
+        </test-method> <!-- Logout_TC09 -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:tests.UserMenuTest@4fb3ee4e]" started-at="2025-03-19T00:28:57 EDT" name="postCondition" finished-at="2025-03-19T00:28:57 EDT" duration-ms="269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCondition -->
-      </class> <!-- tests.LeadsTest -->
+      </class> <!-- tests.UserMenuTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
