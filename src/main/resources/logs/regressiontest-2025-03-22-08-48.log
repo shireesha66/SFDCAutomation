@@ -1,0 +1,9 @@
+2025-03-22-08-48 DEBUG Basetest:setup: initializing report manager..
+2025-03-22-08-48 DEBUG Basetest:setDriver: browser object set forchrome
+2025-03-22-08-48 DEBUG Basetest:setupBrowse: browser object is settingup..
+2025-03-22-08-48 DEBUG Basetest:setupBrowser: test object is set for functioncreateNewViewAccount_TC11
+2025-03-22-08-48 INFO  WaitUtils: waitForElement
+2025-03-22-08-48 INFO  WaitUtils: waitForElement
+2025-03-22-08-48 DEBUG Basetest:closeBrowser: quitting browser....
+2025-03-22-08-48 DEBUG Basetest:closeBrowser:browser is quit and removing browser instance....
+2025-03-22-08-48 DEBUG Basetest:tearDown: flushing the report..
