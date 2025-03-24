@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import utils.FileUtils;
 import utils.WaitUtils;
 
 public class CreateAccountPage extends BasePage {
@@ -40,10 +43,10 @@ public class CreateAccountPage extends BasePage {
 	public 	WebElement ViewUniqueName ;
 	
 	
-	@FindBy(xpath="//input[@class='btn primary'][1]")
+	@FindBy(xpath="//input[@data-uidsfdc='3']")
 	public 	WebElement saveViewNmeButton ;
 	
-	@FindBy(css="select[name='fcf']")
+	@FindBy(xpath="//select[@title='View:']")
 	public 	WebElement AddedViewDropdown ;
 	
 	@FindBy(xpath="//a[normalize-space(text())='Edit']")
@@ -54,14 +57,20 @@ public class CreateAccountPage extends BasePage {
 	public WebElement EditViewViewname;
 	
 	
-	@FindBy(xpath="(//select[@class='column'])[1]")
+	@FindBy(xpath="//select[@data-uidsfdc='8']")
 	public WebElement Field ;
+	
+	@FindBy(xpath="(//select[@data-uidsfdc='8']//option)[2]")
+	public WebElement AccountNameDd ;
 	
 	
 	@FindBy(xpath="//select[@title='Operator 1']")
 	public WebElement operator;
 	
-	@FindBy(xpath="//input[@id='fval1']")
+	@FindBy(css="select#fop1>option:nth-of-type(5)")
+	public WebElement contains;
+	
+	@FindBy(xpath="//input[@title='Value 1']")
 	public WebElement value;
 	
 	
@@ -85,9 +94,62 @@ public class CreateAccountPage extends BasePage {
 	public WebElement SaveButton;
 	
 	
+	//tc13
+	@FindBy(xpath="//a[contains(text(),'Merge Accounts')]")
+	public WebElement MergeAccounts;
+	
+	@FindBy(id="srch")
+	public WebElement SearchAccountBox;
+	
+	@FindBy(name="srchbutton")
+	public WebElement FindAccounts;
+	
+	@FindBy(xpath="//input[@id='cid0']")
+	public WebElement checkboxOne;
+	
+	@FindBy(xpath="//input[@id='cid1']")
+	public WebElement checkBoxtwo;
+	
+	@FindBy(xpath="//div[contains(@class,'pbTopButtons')]//input[contains(@title,'Next')]")
+	public WebElement next;
+	
+	@FindBy(xpath="(//input[@value=' Merge '])[1]")
+	public WebElement merge;
+	
+	//tc14
+	
+	@FindBy(xpath="//a[normalize-space(text())='Accounts with last activity > 30 days']")
+	public WebElement AccountActivitymorethanthirtydays;
+	
+	@FindBy(xpath="//img[@id='ext-gen152']")
+	public WebElement fromdate;
 	
 	
+	@FindBy(xpath="//button[@id='ext-gen277']")
+	public WebElement todayinFromDate;
 	
+	
+	@FindBy(xpath="//img[@id='ext-gen154']")
+	public WebElement toDate;
+	
+	
+	@FindBy(xpath="(//td[@class='x-date-bottom']//table)[2]")
+	public WebElement todayInToDate;
+	
+	
+	@FindBy(xpath="(//td[@class='x-btn-mc'])[1]")
+	public WebElement savereport;
+	
+	
+	@FindBy(xpath="(//input[@class='x-form-text x-form-field'])[1]")
+	public WebElement reportname;
+	
+	
+	@FindBy(xpath="(//input[@class='x-form-text x-form-field'])[2]")
+	public WebElement ReportUniqueName;
+	
+	@FindBy(xpath="//button[normalize-space(text())='Save and Run Report']")
+	public WebElement saveandRunreport;
 	
 	
 	HomePage hp;
@@ -144,7 +206,7 @@ public class CreateAccountPage extends BasePage {
 	//edit account
 	
 	public void SelectingAccountToEdit(WebDriver driver) {
-		//HomePage hp = new HomePage(driver); 
+		HomePage hp = new HomePage(driver); 
 		CreateAccountPage cap = hp.clickOnAccountTab(driver);
 		cap.AddedViewDropdown.click();
 		Select dropdown = new Select(AddedViewDropdown);
@@ -152,23 +214,18 @@ public class CreateAccountPage extends BasePage {
 	}
 	
 	public void FieldOperatorValueSelection(WebDriver driver) {
-		//HomePage hp = new HomePage(driver); 
-		//CreateAccountPage cap = hp.clickOnAccountTab(driver);
-	
 		this.EditButton.click();
-		//cap.EditButton.click();
 		WaitUtils.waitForElement(driver, Field);
-		//cap.Field.click();
+		this.ViewName.sendKeys("okksjdjh");
 		this.Field.click();
 		Select dropdown = new Select(Field);
-		dropdown.selectByIndex(0);
+		dropdown.selectByIndex(1);
 		WaitUtils.waitForElement(driver, operator);
-		//cap.operator.click();
 		this.operator.click();
 		Select dropdown2 = new Select(Field);
-		dropdown2.selectByIndex(3);
+		dropdown2.selectByIndex(4);
 		WaitUtils.waitForElement(driver,value );
-		//cap.value.sendKeys("a");
+		
 		this.value.sendKeys("a");
 	}
 	
@@ -184,6 +241,7 @@ public class CreateAccountPage extends BasePage {
 			if(Available_Fields_dropdown_options.get(i).getText().equals("Last Activity")) {
 				Element_available = true;
 				this.addButton.click();
+				System.out.println("newView displayed");
 				break;
 			}
 		}
@@ -191,8 +249,30 @@ public class CreateAccountPage extends BasePage {
 	}
 		
 		
+	
+	public boolean VerifyDropdownOptions(WebDriver driver) throws FileNotFoundException, IOException {
+		WaitUtils.waitForElement(driver, AddedViewDropdown);
+		
+		Select AddedViewDropdown = new Select (this.AddedViewDropdown);
+		List<WebElement> AddedViewDropdown_options =  AddedViewDropdown.getOptions();
+
+		boolean Account_available = false; //using as a reference to validate if the variable is in available fields dropdown or not
+		
+		for(int i=0; i<AddedViewDropdown_options.size(); i++) {
+			
+			if(AddedViewDropdown_options.get(i).getText().equals(FileUtils.CreateAccountPagePropertiesfile("View.Name"))) {
+				Account_available = true;
+				System.out.println("account created");
+				
+				break;
+			}
+		}
+		return Account_available = true;
+	}
 		
 	}
+		
+	
 
 	
 

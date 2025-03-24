@@ -3,13 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.UserMenuTest">
+      <class name="tests.CreateAccountTest">
         <methods>
-          <include name="Logout_TC09"/>
           <include name="preConditions"/>
+          <include name="closeBrowser"/>
+          <include name="setupBrowser"/>
+          <include name="CreateAccountReport_TC14" invocation-numbers="0"/>
+          <include name="tearDown"/>
           <include name="postCondition"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- tests.UserMenuTest -->
+      </class> <!-- tests.CreateAccountTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
